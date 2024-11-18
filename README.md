@@ -244,10 +244,10 @@ ORDER BY 1 DESC;
 ---
 ## Findings and Conclusion
 
-**1. Content Distribution:** The dataset features a variety of movies and TV shows across different ratings and genres.
-**2. Popular Ratings:** Analyzing common ratings offers insights into the intended audience for the content.
-**3. Geographical Trends:** Leading countries and average content releases, particularly in India, shed light on regional content trends.
-**4. Content Classification:** Sorting content by specific keywords aids in understanding the types of material available on Netflix.
+**1. Content Distribution:** The dataset features a variety of movies and TV shows across different ratings and genres.  
+**2. Popular Ratings:** Analyzing common ratings offers insights into the intended audience for the content.  
+**3. Geographical Trends:** Leading countries and average content releases, particularly in India, shed light on regional content trends.  
+**4. Content Classification:** Sorting content by specific keywords aids in understanding the types of material available on Netflix.  
 
 This analysis delivers an in-depth look at Netflix's offerings and supports strategic content planning and decision-making.
 
