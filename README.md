@@ -50,3 +50,27 @@ SELECT
 FROM netflix 
 GROUP BY type;
 ```
+---
+###2. Find the Most Common Rating for Movies and TV Shows?
+```sql
+SELECT 
+      type, 
+	  rating 
+FROM (
+      SELECT 
+	        type, 
+			rating, 
+			COUNT(*) as rating, 
+			RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC ) Ranking
+      FROM netflix 
+	  GROUP BY type, rating 
+) AS t1 
+WHERE Ranking = 1;
+```
+---
+### 3. Find out Most Number of Movies Released in a Specific Year (e.g., 2018)?
+```sql
+SELECT * 
+FROM netflix
+WHERE release_year = 2018;
+```
