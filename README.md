@@ -46,8 +46,8 @@ SELECT * FROM netflix;
 ```sql
 
 SELECT 
-      type, 
-	  count(*) 
+    type, 
+    count(*) 
 FROM netflix 
 GROUP BY type;
 
@@ -89,14 +89,14 @@ WHERE release_year = 2018;
 
 WITH Most_Content AS (
      SELECT 
-           Trim(UNNEST(STRING_TO_ARRAY(country,','))) AS country, 
-	       count(*) AS contents  
+         Trim(UNNEST(STRING_TO_ARRAY(country,','))) AS country, 
+         count(*) AS contents  
      FROM netflix 
      GROUP BY 1
 )
 SELECT 
-      country, 
-	  contents 
+    country, 
+    contents 
 FROM Most_Content 
 ORDER BY 2 DESC 
 LIMIT 7;
@@ -144,7 +144,7 @@ WHERE date_added >= CURRENT_DATE - INTERVAL '7 year' AND date_added IS NOT NULL;
 
 SELECT 
     UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS genre,
-	COUNT (*) AS content_number 
+    COUNT (*) AS content_number 
 FROM netflix 
 GROUP BY genre 
 ORDER BY 1;
@@ -160,8 +160,8 @@ SELECT
     release_year,
     COUNT(show_id) AS total_release,
     ROUND(
-        COUNT(show_id)::numeric /
-        (SELECT COUNT(show_id) FROM netflix WHERE country ILIKE '%India%')::numeric * 100, 2
+          COUNT(show_id)::numeric /
+          (SELECT COUNT(show_id) FROM netflix WHERE country ILIKE '%India%')::numeric * 100, 2
     ) AS avg_release
 FROM netflix
 WHERE country ILIKE '%India%'
@@ -212,9 +212,8 @@ LIMIT 10;
 
 SELECT * 
 FROM netflix 
-WHERE casts 
-      ILIKE '%Shah Rukh Khan%' 
-      AND date_added>= CURRENT_DATE - INTERVAL '5 year';
+WHERE casts ILIKE '%Shah Rukh Khan%' 
+  AND date_added>= CURRENT_DATE - INTERVAL '5 year';
 
 ```
 
