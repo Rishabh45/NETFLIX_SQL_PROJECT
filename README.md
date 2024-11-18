@@ -1,4 +1,6 @@
 ## Netflix Movies and TV Shows Project using SQL for Data Analysis.
+
+---
 ![](https://github.com/Rishabh45/NETFLIX_SQL_PROJECT/blob/main/Netflix_Logo.png)
 
 ---
@@ -11,3 +13,8 @@ This project entails an in-depth analysis of Netflix's movies and TV shows datas
 - Determine the most frequent ratings for each content type.
 - Organize and evaluate content by release year, country, and duration.
 - Investigate and classify content based on particular criteria and keywords.
+
+---
+### Dataset
+The dataset used in this project is obtained from Kaggle.
+- ### Dataset Link:
