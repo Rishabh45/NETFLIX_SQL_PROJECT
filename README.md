@@ -85,7 +85,7 @@ WHERE release_year = 2018;
 
 ---
 ### 4. Find Top 7 Countries with the Most Number of Movies and TV shows on Netflix?
-``sql
+```sql
 
 WITH Most_Content AS (
      SELECT 
@@ -114,23 +114,34 @@ WHERE type = 'Movie' AND duration = (
                                             MAX(duration) 
                                      FROM netflix
                                      );
+
 ```
 									 
-									 
--- 6. List All TV Shows with More Than  or Equal to 7 Seasons?
+---									 
+### 6. List All TV Shows with More Than  or Equal to 7 Seasons?
+```sql
+
 SELECT *
 FROM netflix
 WHERE type = 'TV Show'
    AND SPLIT_PART(duration, ' ', 1)::INT >= 7;
 
+```
 
--- 7. Find Content Added in the Last 7 Years?
+---
+### 7. Find Content Added in the Last 7 Years?
+```sql
+
 SELECT * 
 FROM netflix 
 WHERE date_added >= CURRENT_DATE - INTERVAL '7 year' AND date_added IS NOT NULL;
 
+```
 
--- 8. Count the Number of Content in Each Genre?
+---
+### 8. Count the Number of Content in Each Genre?
+```sql
+
 SELECT 
     UNNEST(STRING_TO_ARRAY(listed_in, ',')) AS genre,
 	COUNT (*) AS content_number 
@@ -138,8 +149,12 @@ FROM netflix
 GROUP BY genre 
 ORDER BY 1;
 
+```
 
--- 9.Find each year and the average numbers of content release in India on netflix?
+---
+### 9.Find each year and the average numbers of content release in India on netflix?
+```sql
+
 SELECT 
     country,
     release_year,
@@ -154,20 +169,32 @@ GROUP BY country, release_year
 ORDER BY avg_release DESC
 LIMIT 5;
 
+```
 
--- 10. Find Out all the Movies that are Documentaries?
+---
+### 10. Find Out all the Movies that are Documentaries?
+```sql
+
 SELECT * 
 FROM netflix 
 WHERE type = 'Movie' AND listed_in ILIKE '%Documentaries%';
 
+```
 
--- 11. Find All Content Without a Director?
+---
+### 11. Find All Content Without a Director?
+```sql
+
 SELECT * 
 FROM netflix
 WHERE director IS NULL;
 
+```
 
--- 12. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India?
+---
+### 12. Find the Top 10 Actors Who Have Appeared in the Highest Number of Movies Produced in India?
+```sql
+
 SELECT 
     UNNEST(STRING_TO_ARRAY(casts, ',')) AS actor,
     COUNT(*)
@@ -177,16 +204,24 @@ GROUP BY actor
 ORDER BY COUNT(*) DESC
 LIMIT 10;
 
+```
 
--- 13. Find How Many Movies Actor 'Shah Rukh Khan' Appeared in the Netflix Last 5 Years?
+---
+### 13. Find How Many Movies Actor 'Shah Rukh Khan' Appeared in the Netflix Last 5 Years?
+```sql
+
 SELECT * 
 FROM netflix 
 WHERE casts 
       ILIKE '%Shah Rukh Khan%' 
       AND date_added>= CURRENT_DATE - INTERVAL '5 year';
 
+```
 
--- 14. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords.
+---
+### 14. Categorize Content Based on the Presence of 'Kill' and 'Violence' Keywords.
+```sql
+
 WITH No_Of_Category AS (
                   SELECT *,
                          CASE 
@@ -204,6 +239,8 @@ SELECT
 FROM No_Of_Category 
 GROUP BY Category 
 ORDER BY 1 DESC;
+
+```
 
 
 
