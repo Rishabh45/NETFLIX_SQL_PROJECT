@@ -227,10 +227,10 @@ WITH No_Of_Category AS (
                          CASE 
                             When description ILIKE '%Kill%'
 		                         OR 
-		                         description ILIKE '%Violence%'
-		                    THEN 'Bad Category'
-		                    ELSE 'Good Category'
-		                 END Category		   
+                                 description ILIKE '%Violence%'
+                                 THEN 'Bad Category'
+                            ELSE 'Good Category'
+                         END Category		   
                   FROM netflix
 )
 SELECT 
