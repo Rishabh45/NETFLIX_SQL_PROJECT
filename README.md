@@ -44,33 +44,78 @@ SELECT * FROM netflix;
 ## Business Problems and Solutions
 ### 1. Find out the Number of Movies vs TV Shows Present on netflix?
 ```sql
+
 SELECT 
       type, 
 	  count(*) 
 FROM netflix 
 GROUP BY type;
+
 ```
+
 ---
 ###2. Find the Most Common Rating for Movies and TV Shows?
 ```sql
+
 SELECT 
-      type, 
-	  rating 
+    type, 
+    rating 
 FROM (
       SELECT 
-	        type, 
-			rating, 
-			COUNT(*) as rating, 
-			RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC ) Ranking
+          type, 
+          rating, 
+          COUNT(*) as rating, 
+          RANK() OVER(PARTITION BY type ORDER BY COUNT(*) DESC ) Ranking
       FROM netflix 
-	  GROUP BY type, rating 
+      GROUP BY type, rating 
 ) AS t1 
 WHERE Ranking = 1;
+
 ```
+
 ---
 ### 3. Find out Most Number of Movies Released in a Specific Year (e.g., 2018)?
 ```sql
+
 SELECT * 
 FROM netflix
 WHERE release_year = 2018;
+
 ```
+
+---
+### 4. Find Top 7 Countries with the Most Number of Movies and TV shows on Netflix?
+``sql
+
+WITH Most_Content AS (
+     SELECT 
+           Trim(UNNEST(STRING_TO_ARRAY(country,','))) AS country, 
+	       count(*) AS contents  
+     FROM netflix 
+     GROUP BY 1
+)
+SELECT 
+      country, 
+	  contents 
+FROM Most_Content 
+ORDER BY 2 DESC 
+LIMIT 7;
+
+```
+
+---
+### 5. Identify the Longest Movie Duration?
+```sql
+
+SELECT * 
+FROM netflix
+WHERE type = 'Movie' AND duration = ( 
+                                     SELECT
+                                            MAX(duration) 
+                                     FROM netflix
+                                     );
+
+```
+
+---
+
