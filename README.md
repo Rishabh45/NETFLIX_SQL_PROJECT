@@ -1,6 +1,5 @@
 ## Netflix Movies and TV Shows Project using SQL for Data Analysis.
 
----
 ![](https://github.com/Rishabh45/NETFLIX_SQL_PROJECT/blob/main/Netflix_Logo.png)
 
 ---
@@ -41,7 +40,7 @@ CREATE TABLE netflix
 
 SELECT * FROM netflix;
 ```
----
+
 ## Business Problems and Solutions
 ### 1. Find out the Number of Movies vs TV Shows Present on netflix?
 ```sql
