@@ -1,8 +1,3 @@
 # Treat all .sql files as PostgreSQL
 *.sql linguist-language=PostgreSQL
 
-# Ensure .sql files use LF line endings (important for cross-platform compatibility)
-*.sql text eol=lf
-
-# Specify certain PostgreSQL files as binary (e.g., if you have binary dumps or backups)
-*.backup binary
