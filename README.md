@@ -1,3 +1,10 @@
+## Languages
+
+- **Python**: Main programming language for backend and data processing.
+- **JavaScript**: Used for frontend interactivity.
+- **HTML/CSS**: Basic structure and styling for the web pages.
+
+
 ## Netflix Movies and TV Shows Project using SQL for Data Analysis.
 ![](https://github.com/Rishabh45/NETFLIX_SQL_PROJECT/blob/main/Netflix_Logo.png)
 
